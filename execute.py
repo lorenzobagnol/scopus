@@ -80,7 +80,7 @@ model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
 input_embedding = model.encode(abstract_brevetto)
 df['embedding']=None
 df['cosine_similarity']=None
-for index, row in tqdm(df.iterrows(), "Calculating embeddings...", total=len(df)):         # almeno  80 it/s
+for index, row in tqdm(df.iterrows(), "Calculating embeddings...", total=len(df)):         # almeno 80 it/s
     df.loc[index]['embedding']=model.encode(row['description'])
     df.loc[index]['cosine_similarity']=cosine_similarity(row['embedding'].reshape(1, -1), input_embedding.reshape(1, -1))[0][0]
 df.sort_values(by='cosine_similarity', ascending=False, inplace=True)
