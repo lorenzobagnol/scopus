@@ -42,7 +42,7 @@ def create_dataset(file_name, year):
         df.to_csv("csv/"+year+"/"+file_name[:-4]+".csv")
         print("\tcsv created.")
         
-        
+first=True
 BulkDataStorageSystem_url = 'https://bulkdata.uspto.gov/'
 BulkDataStorageSystem = requests.get(BulkDataStorageSystem_url)
 BulkDataStorageSystem_soup = BeautifulSoup(BulkDataStorageSystem.text, 'html.parser')
@@ -55,6 +55,9 @@ for link in BulkDataStorageSystem_soup.find_all('a'):
         for table in PatentGrantFullTextData_soup.find_all('table'):
             for zip_downloader in tqdm(table.find_all('a'), total= len(table.find_all('a')), ):
                 if str(zip_downloader.get_text()).startswith("ipg"):
+                    if first and str(link.get('href'))+"/"+str(zip_downloader.get('href'))!= "https://bulkdata.uspto.gov/data/patent/grant/redbook/fulltext/2023/ipg230425.zip":
+                        continue
+                    else: first=False
                     print("\n\tdownloading patents from link "+str(link.get('href'))+"/"+str(zip_downloader.get('href')))
                     download=requests.get(str(link.get('href'))+"/"+str(zip_downloader.get('href')))
                     with open("xmls/downloaded_zip/downloaded_file.zip","wb") as downloaded_file:

@@ -47,7 +47,7 @@ print(queries)
 
 #script parameters
 target_directory="./SearchResults/"
-schema=['eid', 'pubmed_id', 'title', 'author_names', 'author_ids', 'description', 'authkeywords', 'embedding', 'cosine_similarity']
+schema=['eid', 'coverDate', 'pubmed_id', 'title', 'author_names', 'author_ids', 'description', 'authkeywords', 'embedding', 'cosine_similarity']
 #prepare directory for results
 if not os.path.exists(target_directory):
    os.makedirs(target_directory) 
@@ -83,7 +83,7 @@ df['cosine_similarity']=None
 for index, row in tqdm(df.iterrows(), "Calculating embeddings...", total=len(df)):         # almeno 80 it/s
     df.loc[index]['embedding']=model.encode(row['description'])
     df.loc[index]['cosine_similarity']=cosine_similarity(row['embedding'].reshape(1, -1), input_embedding.reshape(1, -1))[0][0]
-df.sort_values(by='cosine_similarity', ascending=False, inplace=True)
+df.sort_values(by='cosine_similarity', ascending=False, inplace=True, ignore_index=True)
 del df['embedding']
 print("copying df to csv file...")
-df.to_csv("./SearchResults/search_results", sep='\t')
+df.to_csv("./SearchResults/search_results", sep='\t', index=False)
