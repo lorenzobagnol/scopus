@@ -11,7 +11,7 @@ import os
 model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
 
 def create_dataset(file_name, year):
-    df=pd.DataFrame(columns=["id","title","abstract","embedding"])
+    df=pd.DataFrame(columns=["id","date","title","abstract","ipcr_classifications", "embedding"])
     with open("xmls/"+file_name) as input:
         n_line=0
         temp_file = open('xmls/temp/temp.xml','w')
@@ -27,20 +27,27 @@ def create_dataset(file_name, year):
                 ab=None
                 for publication_reference in us_patent_grant.iter("publication-reference"):
                     id=publication_reference.find("document-id").find("doc-number").text
+                    date=publication_reference.find("document-id").find("date").text
                 for us_bibliographic_data_grant in us_patent_grant.iter("us-bibliographic-data-grant"):
                     title=us_bibliographic_data_grant.find("invention-title").text
+                classifications_ipcs=list()
+                for classification in us_bibliographic_data_grant.iter("classification-ipcr"):
+                    classifications_ipcs.append({
+                        "section": classification.find("section").text,
+                        "class": classification.find("class").text,
+                        "subclass": classification.find("subclass").text,
+                        "main-group": classification.find("main-group").text
+                        })
                 for abstract in us_patent_grant.iter("abstract"):
                     ab="".join(abstract.itertext())
+            
                 if ab!=None :
                     emb=model.encode(ab)
-                    df.loc[len(df)]=[id,title,ab,emb]
+                    df.loc[len(df)]=[ id, date, title, ab, classifications_ipcs, emb]
                 temp_file = open('xmls/temp/temp.xml','w')
             temp_file.write(line)   
             n_line+=1
-        if not os.path.isdir("csv/"+year):
-            os.mkdir("csv/"+year)
-        df.to_csv("csv/"+year+"/"+file_name[:-4]+".csv")
-        print("\tcsv created.")
+        df.to_csv("csv/"+file_name[:-4]+".csv")
         
 first=True
 BulkDataStorageSystem_url = 'https://bulkdata.uspto.gov/'
