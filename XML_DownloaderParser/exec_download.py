@@ -55,7 +55,7 @@ for link in BulkDataStorageSystem_soup.find_all('a'):
         for table in PatentGrantFullTextData_soup.find_all('table'):
             for zip_downloader in tqdm(table.find_all('a'), total= len(table.find_all('a')), ):
                 if str(zip_downloader.get_text()).startswith("ipg"):
-                    if first and str(link.get('href'))+"/"+str(zip_downloader.get('href'))!= "https://bulkdata.uspto.gov/data/patent/grant/redbook/fulltext/2023/ipg230425.zip":
+                    if first and str(link.get('href'))+"/"+str(zip_downloader.get('href'))!= "https://bulkdata.uspto.gov/data/patent/grant/redbook/fulltext/2020/ipg200107.zip":
                         continue
                     else: first=False
                     print("\n\tdownloading patents from link "+str(link.get('href'))+"/"+str(zip_downloader.get('href')))
