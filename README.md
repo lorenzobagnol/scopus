@@ -10,3 +10,6 @@ In ogni csv ci sono, in ordine:
   - ipcr_classifications : una lista di dizionari. Ogni dizionario rappresenta una specifica classificazione del patent. 
                        Dentro ogni dizionario ci dovrebbero essere: section, class, subclass, main-group (in ordine di gerarchia)
   - embedding : fatto con SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
+
+Problema: lo script continua a scaricare. quando pensi siano abbastanza patent o quando sta andando più indetro del 2016 fermalo.
+Comunque avrai tutti i csv salvati in cartelle con il nome dell'anno a cui appartengono.
