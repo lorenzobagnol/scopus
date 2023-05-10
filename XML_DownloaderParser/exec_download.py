@@ -47,7 +47,10 @@ def create_dataset(file_name, year):
                 temp_file = open('xmls/temp/temp.xml','w')
             temp_file.write(line)   
             n_line+=1
-        df.to_csv("csv/"+file_name[:-4]+".csv")
+        if not os.path.isdir("csv/"+year):
+            os.mkdir("csv/"+year)
+        df.to_csv("csv/"+year+"/"+file_name[:-4]+".csv")
+        print("\tcsv created.")
         
 first=True
 BulkDataStorageSystem_url = 'https://bulkdata.uspto.gov/'
