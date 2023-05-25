@@ -43,10 +43,13 @@
 <generating-office><country>US</country></generating-office>
 <classification-status>B</classification-status>
 <classification-data-source>H</classification-data-source>
-</classification-ipcr>
-<classification-ipcr>
-<ipc-version-indicator><date>20060101</date></ipc-version-indicator>
-<classification-level>A</classification-level>
+<scheme-origination-code>C</scheme-origination-code>
+</classification-cpc>
+</combination-rank>
+<combination-rank>
+<rank-number>2</rank-number>
+<classification-cpc>
+<cpc-version-indicator><date>20130101</date></cpc-version-indicator>
 <section>H</section>
 <class>05</class>
 <subclass>K</subclass>
@@ -73,10 +76,11 @@
 <generating-office><country>US</country></generating-office>
 <classification-status>B</classification-status>
 <classification-data-source>H</classification-data-source>
-</classification-ipcr>
-</classifications-ipcr>
-<classifications-cpc>
-<main-cpc>
+<scheme-origination-code>C</scheme-origination-code>
+</classification-cpc>
+</combination-rank>
+<combination-rank>
+<rank-number>3</rank-number>
 <classification-cpc>
 <cpc-version-indicator><date>20180801</date></cpc-version-indicator>
 <section>H</section>
@@ -92,8 +96,12 @@
 <classification-data-source>H</classification-data-source>
 <scheme-origination-code>C</scheme-origination-code>
 </classification-cpc>
-</main-cpc>
-<further-cpc>
+</combination-rank>
+</combination-set>
+<combination-set>
+<group-number>5</group-number>
+<combination-rank>
+<rank-number>1</rank-number>
 <classification-cpc>
 <cpc-version-indicator><date>20130101</date></cpc-version-indicator>
 <section>G</section>
@@ -109,6 +117,9 @@
 <classification-data-source>H</classification-data-source>
 <scheme-origination-code>C</scheme-origination-code>
 </classification-cpc>
+</combination-rank>
+<combination-rank>
+<rank-number>2</rank-number>
 <classification-cpc>
 <cpc-version-indicator><date>20130101</date></cpc-version-indicator>
 <section>G</section>
@@ -124,6 +135,12 @@
 <classification-data-source>H</classification-data-source>
 <scheme-origination-code>C</scheme-origination-code>
 </classification-cpc>
+</combination-rank>
+</combination-set>
+<combination-set>
+<group-number>6</group-number>
+<combination-rank>
+<rank-number>1</rank-number>
 <classification-cpc>
 <cpc-version-indicator><date>20130101</date></cpc-version-indicator>
 <section>H</section>
@@ -139,6 +156,9 @@
 <classification-data-source>H</classification-data-source>
 <scheme-origination-code>C</scheme-origination-code>
 </classification-cpc>
+</combination-rank>
+<combination-rank>
+<rank-number>2</rank-number>
 <classification-cpc>
 <cpc-version-indicator><date>20180801</date></cpc-version-indicator>
 <section>H</section>
@@ -154,6 +174,9 @@
 <classification-data-source>H</classification-data-source>
 <scheme-origination-code>C</scheme-origination-code>
 </classification-cpc>
+</combination-rank>
+<combination-rank>
+<rank-number>2</rank-number>
 <classification-cpc>
 <cpc-version-indicator><date>20130101</date></cpc-version-indicator>
 <section>G</section>
@@ -169,6 +192,8 @@
 <classification-data-source>H</classification-data-source>
 <scheme-origination-code>C</scheme-origination-code>
 </classification-cpc>
+</combination-rank>
+</combination-set>
 </further-cpc>
 </classifications-cpc>
 <invention-title id="d2e71">Board inspecting apparatus and board inspecting method using the same</invention-title>
@@ -181,7 +206,9 @@
 <date>19891000</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-cpc-text>H05K 3/303</classification-cpc-text>
+<classification-national><country>US</country><main-classification>174260</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00002">
@@ -211,7 +238,9 @@
 <date>20080900</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-cpc-text>H01L 23/544</classification-cpc-text>
+<classification-national><country>US</country><main-classification>257E21511</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00005">
@@ -221,7 +250,8 @@
 <date>20110500</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-national><country>US</country><main-classification>257737</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00006">
@@ -231,7 +261,8 @@
 <date>20120300</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-national><country>US</country><main-classification> 29840</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00007">
@@ -241,7 +272,8 @@
 <date>20110900</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-national><country>US</country><main-classification>2281731</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00008">
@@ -251,7 +283,8 @@
 <date>20141000</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-national><country>US</country><main-classification>438108</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00009">
@@ -261,7 +294,8 @@
 <date>20081100</date>
 </document-id>
 </patcit>
-<category>cited by applicant</category>
+<category>cited by examiner</category>
+<classification-national><country>US</country><main-classification>438108</main-classification></classification-national>
 </us-citation>
 <us-citation>
 <patcit num="00010">
@@ -556,6 +590,9 @@
 </claim>
 <claim id="CLM-00006" num="00006">
 <claim-text>6. A computer readable non-transitory recording medium recording a program implementing the board inspecting method of <claim-ref idref="CLM-00003">claim 3</claim-ref>.</claim-text>
+</claim>
+<claim id="CLM-00006" num="00006">
+<claim-text>6. The method for producing a component mounting board according to <claim-ref idref="CLM-00005">claim 5</claim-ref>, wherein in the step (a), the solder paste is applied on the joint face such that a total volume of the solder included in the solder paste becomes 95% to 100% of a volume of the first space. </claim-text>
 </claim>
 </claims>
 </us-patent-grant>

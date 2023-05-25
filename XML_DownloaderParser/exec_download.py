@@ -37,9 +37,9 @@ def create_dataset(file_name, year):
                 temp_file = open('xmls/temp/temp.xml','w')
             temp_file.write(line)   
             n_line+=1
-        if not os.path.isdir("csv/"+year):
-            os.mkdir("csv/"+year)
-        df.to_csv("csv/"+year+"/"+file_name[:-4]+".csv")
+        if not os.path.isdir("../VerifyCluster/csv/"+year):
+            os.mkdir("../VerifyCluster/csv/"+year)
+        df.to_csv("../VerifyCluster/csv/"+year+"/"+file_name[:-4]+".csv")
         print("\tcsv created.")
         
 first=True

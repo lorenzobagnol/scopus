@@ -1,0 +1,350 @@
+verifying clusters for different sections
+
+
+
+collecting data from 2019
+collecting data from 2017
+collecting data from 2016
+collecting data from 2018
+collecting data from 2020
+data collected.
+trying to balance the dataset...
+searching 2000 elements for section A
+searching 2000 elements for section B
+searching 2000 elements for section C
+searching 2000 elements for section D
+searching 2000 elements for section E
+searching 2000 elements for section F
+searching 2000 elements for section G
+searching 2000 elements for section H
+
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'A': 0.9752109112861651, 
+'B': 0.9743619192323302, 
+'C': 0.9427271416476241, 
+'D': 0.8802853063862818, 
+'E': 0.9397761533303408, 
+'F': 0.935824945652156, 
+'G': 0.9530590719536626, 
+'H': 0.9473945700903468}
+
+
+██████████████████████████████████████████████████████████████████████████████████████████
+==========================================================================================
+==========================================================================================
+==========================================================================================
+
+
+
+collecting data from 2019
+collecting data from 2017
+collecting data from 2016
+collecting data from 2018
+collecting data from 2020
+data collected.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section A
+We have a total of 1356678 documents
+Only 185889 of them are classified (with ipcr) with section A
+Finding different classes within section A
+Classes for section A are:
+{'01': 22740, '42': 783, '61': 117411, '47': 14532, '21': 401, '23': 2674, '22': 452, '24': 2134, '41': 2048, '43': 1984, '63': 14471, '45': 2984, '44': 1068, '46': 754, '62': 1453}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 01
+    searching 1000 elements for class 42
+    Only 783 elements are present in the dataset for class 42 in section A. Try to download more documents.
+    searching 1000 elements for class 61
+    searching 1000 elements for class 47
+    searching 1000 elements for class 21
+    Only 401 elements are present in the dataset for class 21 in section A. Try to download more documents.
+    searching 1000 elements for class 23
+    searching 1000 elements for class 22
+    Only 452 elements are present in the dataset for class 22 in section A. Try to download more documents.
+    searching 1000 elements for class 24
+    searching 1000 elements for class 41
+    searching 1000 elements for class 43
+    searching 1000 elements for class 63
+    searching 1000 elements for class 45
+    searching 1000 elements for class 44
+    searching 1000 elements for class 46
+    Only 754 elements are present in the dataset for class 46 in section A. Try to download more documents.
+    searching 1000 elements for class 62
+We now have 13390 documents with section A
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'01': 0.9196131723498125, '42': 0.6988064733532348, '61': 0.9473261171115179, '47': 0.9475295847142153, '21': 0.8447569945001869, '23': 0.8990612862530202, '22': 0.8562247532072444, '24': 0.7141922221285649, '41': 0.872939467694526, '43': 0.6726197986089131, '63': 0.9169168947172611, '45': 0.9269715301749779, '44': 0.860256385479265, '46': 0.750062664124963, '62': 0.9010612899413244}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section B
+We have a total of 1356678 documents
+Only 154115 of them are classified (with ipcr) with section B
+Finding different classes within section B
+Classes for section B are:
+{'22': 2185, '41': 8932, '60': 35731, '65': 17005, '23': 9068, '43': 460, '62': 8752, '01': 15961, '21': 2459, '29': 8649, '02': 764, '03': 513, '04': 266, '05': 4320, '07': 619, '08': 1399, '33': 411, '24': 2003, '25': 5432, '44': 422, '26': 1725, '27': 615, '28': 549, '32': 6262, '30': 261, '31': 365, '42': 725, '64': 7627, '61': 1319, '63': 3087, '66': 3047, '67': 1417, '81': 912, '82': 264, '06': 261, '09': 248, '68': 80}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 22
+    searching 1000 elements for class 41
+    searching 1000 elements for class 60
+    searching 1000 elements for class 65
+    searching 1000 elements for class 23
+    searching 1000 elements for class 43
+    Only 460 elements are present in the dataset for class 43 in section B. Try to download more documents.
+    searching 1000 elements for class 62
+    searching 1000 elements for class 01
+    searching 1000 elements for class 21
+    searching 1000 elements for class 29
+    searching 1000 elements for class 02
+    Only 764 elements are present in the dataset for class 02 in section B. Try to download more documents.
+    searching 1000 elements for class 03
+    Only 513 elements are present in the dataset for class 03 in section B. Try to download more documents.
+    searching 1000 elements for class 04
+    Only 266 elements are present in the dataset for class 04 in section B. Try to download more documents.
+    searching 1000 elements for class 05
+    searching 1000 elements for class 07
+    Only 619 elements are present in the dataset for class 07 in section B. Try to download more documents.
+    searching 1000 elements for class 08
+    searching 1000 elements for class 33
+    Only 411 elements are present in the dataset for class 33 in section B. Try to download more documents.
+    searching 1000 elements for class 24
+    searching 1000 elements for class 25
+    searching 1000 elements for class 44
+    Only 422 elements are present in the dataset for class 44 in section B. Try to download more documents.
+    searching 1000 elements for class 26
+    searching 1000 elements for class 27
+    Only 615 elements are present in the dataset for class 27 in section B. Try to download more documents.
+    searching 1000 elements for class 28
+    Only 549 elements are present in the dataset for class 28 in section B. Try to download more documents.
+    searching 1000 elements for class 32
+    searching 1000 elements for class 30
+    Only 261 elements are present in the dataset for class 30 in section B. Try to download more documents.
+    searching 1000 elements for class 31
+    Only 365 elements are present in the dataset for class 31 in section B. Try to download more documents.
+    searching 1000 elements for class 42
+    Only 725 elements are present in the dataset for class 42 in section B. Try to download more documents.
+    searching 1000 elements for class 64
+    searching 1000 elements for class 61
+    searching 1000 elements for class 63
+    searching 1000 elements for class 66
+    searching 1000 elements for class 67
+    searching 1000 elements for class 81
+    Only 912 elements are present in the dataset for class 81 in section B. Try to download more documents.
+    searching 1000 elements for class 82
+    Only 264 elements are present in the dataset for class 82 in section B. Try to download more documents.
+    searching 1000 elements for class 06
+    Only 261 elements are present in the dataset for class 06 in section B. Try to download more documents.
+    searching 1000 elements for class 09
+    Only 248 elements are present in the dataset for class 09 in section B. Try to download more documents.
+    searching 1000 elements for class 68
+    Only 80 elements are present in the dataset for class 68 in section B. Try to download more documents.
+We now have 27735 documents with section B
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'22': 0.8648756395640992, '41': 0.8223753807891708, '60': 0.9028881366654536, '65': 0.9228657962190758, '23': 0.9219597815252102, '43': 0.873050204381255, '62': 0.8978476468067753, '01': 0.9314590841258599, '21': 0.9287715701817528, '29': 0.9139245414061156, '02': 0.8958739265120749, '03': 0.8634122288299828, '04': 0.7162824559126731, '05': 0.9168812283307419, '07': 0.8852281221389813, '08': 0.8626616569301189, '33': 0.7821845649121696, '24': 0.8772556883316409, '25': 0.8959404223772399, '44': 0.9221163803340546, '26': 0.8221934130032029, '27': 0.8886588211027241, '28': 0.9372038405303327, '32': 0.8948503930765271, '30': 0.8805484392872884, '31': 0.8858268607854396, '42': 0.8688878947239608, '64': 0.9135728672404863, '61': 0.828918028454098, '63': 0.8391293271523883, '66': 0.8653231408057476, '67': 0.8130803488376181, '81': 0.7368747185025688, '82': 0.8646688369154135, '06': 0.7649946958181639, '09': 0.8239533275940034, '68': 0.8525889052572265}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section C
+We have a total of 1356678 documents
+Only 92296 of them are classified (with ipcr) with section C
+Finding different classes within section C
+Classes for section C are:
+{'07': 26511, '12': 18015, '08': 13883, '09': 8497, '10': 3469, '02': 2575, '01': 2766, '21': 961, '22': 2362, '25': 1796, '03': 1960, '04': 1834, '05': 420, '06': 175, '40': 319, '11': 1711, '23': 3951, '30': 911, '13': 119, '14': 61}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 07
+    searching 1000 elements for class 12
+    searching 1000 elements for class 08
+    searching 1000 elements for class 09
+    searching 1000 elements for class 10
+    searching 1000 elements for class 02
+    searching 1000 elements for class 01
+    searching 1000 elements for class 21
+    Only 961 elements are present in the dataset for class 21 in section C. Try to download more documents.
+    searching 1000 elements for class 22
+    searching 1000 elements for class 25
+    searching 1000 elements for class 03
+    searching 1000 elements for class 04
+    searching 1000 elements for class 05
+    Only 420 elements are present in the dataset for class 05 in section C. Try to download more documents.
+    searching 1000 elements for class 06
+    Only 175 elements are present in the dataset for class 06 in section C. Try to download more documents.
+    searching 1000 elements for class 40
+    Only 319 elements are present in the dataset for class 40 in section C. Try to download more documents.
+    searching 1000 elements for class 11
+    searching 1000 elements for class 23
+    searching 1000 elements for class 30
+    Only 911 elements are present in the dataset for class 30 in section C. Try to download more documents.
+    searching 1000 elements for class 13
+    Only 119 elements are present in the dataset for class 13 in section C. Try to download more documents.
+    searching 1000 elements for class 14
+    Only 61 elements are present in the dataset for class 14 in section C. Try to download more documents.
+We now have 15966 documents with section C
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'07': 0.8822134056431719, '12': 0.8883580864735359, '08': 0.8537413044174784, '09': 0.9237636301979717, '10': 0.8616730415667118, '02': 0.831846253731817, '01': 0.9515384733524141, '21': 0.7842449873825905, '22': 0.8452552048926262, '25': 0.8854386820715903, '03': 0.8230529092305909, '04': 0.8852922407982762, '05': 0.8138100656606373, '06': 0.8403264982992872, '40': 0.7976156255916824, '11': 0.8453185694637565, '23': 0.8966945435891174, '30': 0.8268187904128259, '13': 0.7251601443677264, '14': 0.7572185235259062}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section D
+We have a total of 1356678 documents
+Only 5518 of them are classified (with ipcr) with section D
+Finding different classes within section D
+Classes for section D are:
+{'01': 640, '02': 184, '04': 646, '03': 342, '06': 2149, '21': 1121, '05': 348, '07': 88}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 01
+    Only 640 elements are present in the dataset for class 01 in section D. Try to download more documents.
+    searching 1000 elements for class 02
+    Only 184 elements are present in the dataset for class 02 in section D. Try to download more documents.
+    searching 1000 elements for class 04
+    Only 646 elements are present in the dataset for class 04 in section D. Try to download more documents.
+    searching 1000 elements for class 03
+    Only 342 elements are present in the dataset for class 03 in section D. Try to download more documents.
+    searching 1000 elements for class 06
+    searching 1000 elements for class 21
+    searching 1000 elements for class 05
+    Only 348 elements are present in the dataset for class 05 in section D. Try to download more documents.
+    searching 1000 elements for class 07
+    Only 88 elements are present in the dataset for class 07 in section D. Try to download more documents.
+We now have 4248 documents with section D
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'01': 0.9332016148744317, '02': 0.8833488567994208, '04': 0.9005979305914721, '03': 0.8683954754134068, '06': 0.8446937594829731, '21': 0.9050879762201497, '05': 0.7983354800946415, '07': 0.7826823816061831}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section E
+We have a total of 1356678 documents
+Only 31063 of them are classified (with ipcr) with section E
+Finding different classes within section E
+Classes for section E are:
+{'03': 1889, '01': 1939, '04': 6741, '05': 3886, '21': 11934, '02': 2771, '06': 1903}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 03
+    searching 1000 elements for class 01
+    searching 1000 elements for class 04
+    searching 1000 elements for class 05
+    searching 1000 elements for class 21
+    searching 1000 elements for class 02
+    searching 1000 elements for class 06
+We now have 7000 documents with section E
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'03': 0.8437408713869354, '01': 0.945888291079238, '04': 0.9323513443965399, '05': 0.835539527938525, '21': 0.8829787474775348, '02': 0.9563554060920159, '06': 0.9120418174604987}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section F
+We have a total of 1356678 documents
+Only 94175 of them are classified (with ipcr) with section F
+Finding different classes within section F
+Classes for section F are:
+{'25': 5201, '16': 26451, '26': 761, '41': 4561, '15': 1282, '01': 12229, '02': 12679, '03': 2786, '04': 5945, '17': 771, '21': 10316, '22': 287, '23': 2204, '24': 4483, '28': 2477, '27': 492, '42': 1250}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 25
+    searching 1000 elements for class 16
+    searching 1000 elements for class 26
+    Only 761 elements are present in the dataset for class 26 in section F. Try to download more documents.
+    searching 1000 elements for class 41
+    searching 1000 elements for class 15
+    searching 1000 elements for class 01
+    searching 1000 elements for class 02
+    searching 1000 elements for class 03
+    searching 1000 elements for class 04
+    searching 1000 elements for class 17
+    Only 771 elements are present in the dataset for class 17 in section F. Try to download more documents.
+    searching 1000 elements for class 21
+    searching 1000 elements for class 22
+    Only 287 elements are present in the dataset for class 22 in section F. Try to download more documents.
+    searching 1000 elements for class 23
+    searching 1000 elements for class 24
+    searching 1000 elements for class 28
+    searching 1000 elements for class 27
+    Only 492 elements are present in the dataset for class 27 in section F. Try to download more documents.
+    searching 1000 elements for class 42
+We now have 15311 documents with section F
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'25': 0.8134569346905947, '16': 0.9461654013666358, '26': 0.8421152211647652, '41': 0.8390183761965728, '15': 0.8364607175655896, '01': 0.8991739928520552, '02': 0.8695260430709528, '03': 0.8298321281666435, '04': 0.8945350223517616, '17': 0.8789586392089318, '21': 0.7257488759373211, '22': 0.8292025365046544, '23': 0.8178011935106062, '24': 0.8985773688332692, '28': 0.7655253950349453, '27': 0.8765526397184404, '42': 0.8603067281984489}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section G
+We have a total of 1356678 documents
+Only 408820 of them are classified (with ipcr) with section G
+Finding different classes within section G
+Classes for section G are:
+{'05': 13225, '06': 219764, '08': 10849, '02': 30105, '03': 15973, '01': 68877, '07': 5515, '09': 16039, '04': 1076, '11': 15697, '10': 8836, '16': 1348, '21': 1502, '12': 14}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 05
+    searching 1000 elements for class 06
+    searching 1000 elements for class 08
+    searching 1000 elements for class 02
+    searching 1000 elements for class 03
+    searching 1000 elements for class 01
+    searching 1000 elements for class 07
+    searching 1000 elements for class 09
+    searching 1000 elements for class 04
+    searching 1000 elements for class 11
+    searching 1000 elements for class 10
+    searching 1000 elements for class 16
+    searching 1000 elements for class 21
+    searching 1000 elements for class 12
+    Only 14 elements are present in the dataset for class 12 in section G. Try to download more documents.
+We now have 13014 documents with section G
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'05': 0.9493190646676205, '06': 0.962412431468064, '08': 0.8978210118162301, '02': 0.8691776011094241, '03': 0.8722956729143718, '01': 0.9684205239363657, '07': 0.8961619296299693, '09': 0.863038000800281, '04': 0.84739323641962, '11': 0.8278414865347542, '10': 0.8399718354402884, '16': 0.8595341289282548, '21': 0.8634435991162099, '12': 0.8648691569013917}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+Verifying embeddings with classes of section H
+We have a total of 1356678 documents
+Only 384802 of them are classified (with ipcr) with section H
+Finding different classes within section H
+Classes for section H are:
+{'04': 186082, '01': 131149, '05': 18383, '02': 32079, '03': 17109}
+Balancing dataset with a maximum of 1000 elements per class
+    searching 1000 elements for class 04
+    searching 1000 elements for class 01
+    searching 1000 elements for class 05
+    searching 1000 elements for class 02
+    searching 1000 elements for class 03
+We now have 5000 documents with section H
+Intra-cluster vs Inter-cluster distance ratio for each class:
+{'04': 0.9130329667957285, '01': 0.8969409984576504, '05': 0.9340061212091769, '02': 0.929678802894777, '03': 0.9320478281814187}
+
+

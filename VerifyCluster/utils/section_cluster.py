@@ -5,23 +5,32 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import scipy
 from sentence_transformers import SentenceTransformer
+from tqdm import tqdm
 
 
 distance_function="cosine"
+sections_list = ["A","B","C","D","E","F","G","H"]
 color_palette = ["#ff0000", "#00ff00", "#0000ff", "#00ffff", "#ffff00", "#ff00ff", "#ff8888", "#88ff88", "#8888ff", "#aaaaaa"]
 class_dict={}
 color_dict={}
-def plot_embedding_different_subject(df, class_list):
-    model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
-    for i in range(len(class_list)):
-        class_dict[class_list[i]] = i
-        color_dict[class_list[i]] = color_palette[i]
-        
-    embeddings = np.array(model.encode(df["description"].values))
+el_per_class=2000
+
+
+def plot_embedding_different_sections(df):
+    
+    for i in range(len(sections_list)):
+        class_dict[sections_list[i]] = i
+        color_dict[sections_list[i]] = color_palette[i]
+
 
     #plot embeddings
-    print("Plotting PCA of embeddings")
-    colors = [color_dict[c] for c in df["class"]]
+    print("Plotting PCA of embeddings for different sections")
+    colors = [color_dict[eval(c)[0]["section"]] for c in df["ipcr_classifications"]]
+    embeddings=[np.fromstring(el.replace('\n','')
+                            .replace('[','')
+                            .replace(']','')
+                            .replace('  ',' '), sep=' ') for  el in df["embedding"]] 
+    embeddings=np.array(embeddings)
     pca_model = PCA(n_components = 50)
     pca_result = pca_model.fit_transform(embeddings)
     tsne_model = TSNE(n_components = 3, perplexity=2)
@@ -33,17 +42,17 @@ def plot_embedding_different_subject(df, class_list):
 
     #obtain class of each embedding
     print("Calculating intra-cluster and inter-cluster distances")
-    classes = df["class"].values.flatten()
+    classes= [eval(c)[0]["section"] for c in df["ipcr_classifications"]]
     #calculate intra-cluster and inter-cluster average distances
     dist_int = {}
     dist_ext = {}
     dist_ratio = {}
     #initialize lists
-    for c in class_list:
+    for c in sections_list:
         dist_int[c] = []
         dist_ext[c] = []
     #iterate over classes and embeddings
-    for i in range(len(classes)):
+    for i in tqdm(range(len(classes))):
         for j in range(len(classes)):
             if i == j:
                 dist_int[classes[i]].append(0.0)
@@ -52,15 +61,33 @@ def plot_embedding_different_subject(df, class_list):
             else:
                 dist_ext[classes[i]].append(get_distance(embeddings[i], embeddings[j], {}))
     #average every distance vector
-    for c in class_list:
+    for c in sections_list:
         dist_int[c] = np.average(dist_int[c])
         dist_ext[c] = np.average(dist_ext[c])
         dist_ratio[c] = float(dist_int[c])/float(dist_ext[c])
     #print results
     print("Intra-cluster vs Inter-cluster distance ratio for each class:")
     print(dist_ratio)
-        
-        
+
+
+
+def balance_dataframe(df):
+    balanced_df=pd.DataFrame(columns=["id","date","title","abstract","ipcr_classifications", "embedding"])
+    balanced=True
+    print("trying to balance the dataset...")
+    for cl in sections_list:
+        print("searching "+str(el_per_class)+" elements for section "+str(cl))
+        mask=[eval(c)[0]["section"]==cl for c in df["ipcr_classifications"]]
+        temp=df.loc[mask][:el_per_class]
+        df=df.loc[[not el for el in mask]]
+        if len(temp)<el_per_class:
+            balanced=False
+            print("Only "+str(len(temp))+" elements are present in the dataset for section "+cl+". Try to download more documents.")
+        balanced_df = pd.concat([balanced_df, temp], join="outer", ignore_index=True)     
+    if balanced:
+        print("the dataset has been balanced")
+    return balanced_df
+ 
         
 #euclidean distance function
 def get_euclidean_distance(a, b):
