@@ -42,7 +42,7 @@ def create_dataset(file_name, year):
         df.to_csv("../VerifyCluster/csv/"+year+"/"+file_name[:-4]+".csv")
         print("\tcsv created.")
         
-first=True
+first=False
 BulkDataStorageSystem_url = 'https://bulkdata.uspto.gov/'
 BulkDataStorageSystem = requests.get(BulkDataStorageSystem_url)
 BulkDataStorageSystem_soup = BeautifulSoup(BulkDataStorageSystem.text, 'html.parser')
