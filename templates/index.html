@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retriever</title>
+    <script type="text/javascript" src="{{ url_for('static', filename='functions.js') }}"></script>
+</head>
+<body>
+    <h1>Inserire abstract</h1>
+    <form id="stringForm">
+        <textarea id="abstract" name="text" required rows="4" cols="50">Insert abstract</textarea><br>
+        <button onclick="show_interrupt_button(); run_scopus_search(event)" type="submit">Submit Scopus</button>
+        <button onclick="show_interrupt_button(); run_patent_search(event)" type="submit">Submit Patent</button>
+    </form>
+    <br>
+    <button onclick=interrupt() id="interrupt" disabled="disabled">Interrupt</button>
+    <div id="result"></div>
+
+ <!--   <script>
+        // JavaScript code to handle form submission
+        document.getElementById("stringForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get the value of input field 'a'
+            var a = document.getElementById("abstract").value;
+
+            // Send 'a' to the Flask backend using a POST request
+            fetch("/scopus_search", {
+                method: "POST",
+                body: new URLSearchParams({ 'a': a }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Display the response from the Flask backend
+                document.getElementById("result").innerHTML = data.message;
+            })
+            .catch(error => console.error(error));
+        });
+    </script>
+-->
+</body>
+</html>
