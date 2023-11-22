@@ -2,6 +2,7 @@ import pandas as pd
 import os
 import json
 
+base_path="/home/bagnol/progetti/Scopus/"
 
 sections_list = ["A","B","C","D","E","F","G","H"]
 
@@ -13,14 +14,7 @@ sections_dict={"A":['61', '62', '46', '45', '01', '47', '63', '23', '41', '24', 
 "G":['06', '05', '01', '02', '09', '08', '07', '16', '03', '11', '10', '21', '04', '12'],
 "H":['04', '01', '02', '05', '03']}
 
-df=pd.DataFrame(columns=["id","date","title","abstract","ipcr_classifications", "embedding"])
-for year in os.listdir("csv"):
-    if year!=".gitignore":
-        print("collecting data from "+year)
-        for csv in os.listdir("csv/"+year):
-            filename = os.fsdecode(csv)          
-            df_temp=pd.read_csv("csv/"+year+"/"+filename)
-            df = pd.concat([df, df_temp], join="outer", ignore_index=True)
+df=pd.read_csv(base_path+"VerifyClusterPatents/dataset_cleaned/dataset_cleaned.csv", index_col=False)
 print("data collected.")
 df = df.sample(frac=1, random_state=10).reset_index(drop=True)
 
@@ -48,6 +42,7 @@ def balance(df):
 
 print("saving balanced dataset of documents and their numbers")
 balanced, num_docs =balance(df)
-with open('final_num_docs.json', 'w') as fp:
+with open(base_path+'VerifyClusterPatents/Clustering/final_num_docs.json', 'w') as fp:
     json.dump(num_docs, fp)
-balanced.to_csv("./final_balanced_subclasses.csv")
+balanced.to_csv(base_path+'VerifyClusterPatents/Clustering/balanced_subclasses.csv')
+print("completed")

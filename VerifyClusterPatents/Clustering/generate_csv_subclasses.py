@@ -3,17 +3,29 @@ import json
 from tqdm import tqdm
 import numpy as np
 from sklearn.metrics import pairwise_distances
+import argparse
+import gc
+
+parser = argparse.ArgumentParser(
+                    prog='ProgramName',
+                    description='What the program does',
+                    epilog='Text at the bottom of help')
+parser.add_argument('-m', '--metric', type=str, help="Your input string", choices=["euclidean", "cosine"], default="euclidean")
+args=parser.parse_args()
+
+metric=args.metric
+
+
+base_path="/home/bagnol/progetti/Scopus/"
 
 
 
-
-metric="euclidean"
 
 
 # read and save dataset e num_docs dictionary for each subclasses
-balanced=pd.read_csv("./final_balanced_subclasses.csv",index_col=False)
+balanced=pd.read_csv(base_path+"VerifyClusterPatents/Clustering/balanced_subclasses.csv",index_col=False)
 print("dataset loaded")
-with open("./final_num_docs.json") as js:
+with open(base_path+"VerifyClusterPatents/Clustering/final_num_docs.json") as js:
     num_docs=json.load(js)
 print("num documents loaded")
 
@@ -102,8 +114,8 @@ for c in dist_int.keys():
 for c in dist_int.keys():
     results.loc[len(results)]=[c[0],c[1],c[2],num_docs[str(c)],dist_int[c],dist_ext_subclass[c],dist_ext_class[c],dist_ext_sect[c]] 
 if metric=="cosine":
-    path="./final_cosine_distances.csv"
+    path=base_path+"VerifyClusterPatents/Clustering/subclass_cosine_distances.csv"
 else:
-    path="./final_euclidean_distances.csv"
+    path=base_path+"VerifyClusterPatents/Clustering/subclass_euclidean_distances.csv"
 print("saving results for "+metric+" distance")
 results.to_csv(path, index=False)

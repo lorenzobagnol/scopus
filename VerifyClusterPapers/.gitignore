@@ -1,2 +1,2 @@
-/Clustering/*.csv
-/Subjects/*
+*.csv
+*.json

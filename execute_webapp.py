@@ -12,18 +12,25 @@ from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, render_template, jsonify
 from sklearn.metrics import pairwise_distances
 
-
+print("loading dataset...")
+df=pd.read_csv("VerifyClusterPatents/dataset_cleaned.csv", index_col=False)
+print("calculating embeddings...")
+embeddings=[np.fromstring(el.replace('\n','')
+                    .replace('[','')
+                    .replace(']','')
+                    .replace('  ',' '), sep=' ') for  el in df["embedding"]] 
+embeddings=np.array(embeddings)  
 
 stop_flag = False
 lorenzobgl_key="4584271ffe90d11d615ea935afcd5ee0"
 ateneo_key="d005d4f5c91efe2932594d5f07bb06f1"
-print(pybliometrics.scopus.utils.constants.CONFIG_FILE)
-print(config['Authentication']['APIKey'])
+#print(pybliometrics.scopus.utils.constants.CONFIG_FILE)
+#print(config['Authentication']['APIKey'])
 
 app = Flask(__name__)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()#debug=True)
 
 
 # given n keywords returns all the subset of two or more element
@@ -107,12 +114,12 @@ def retrive_from_scopus():
     df['embedding']=embedding_list
     df['distance']=distances
     df.sort_values(by='distance', ascending=False, inplace=True, ignore_index=True)
-    df=df[:100]
+    #df=df[:100]
     del df['embedding']
     print("copying df to csv file...")
     df.to_csv("./SearchResults/scopus_search_results.csv", index=False)
     response = {
-        "message": df.to_dict(),
+        "message": df[:100].to_dict(),
         "status": "success"
     }
     return jsonify(response)
@@ -120,38 +127,26 @@ def retrive_from_scopus():
 
 @app.route('/patent_search', methods=['GET', 'POST',])
 def retrive_from_csv():
+    global df
+    global embeddings
     global stop_flag
     abstract_brevetto=request.form.get('a')
     model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
     input_embedding = model.encode(abstract_brevetto)
     input_embedding=np.array([input_embedding])
-    df=pd.DataFrame(columns=["id","date","title","abstract","ipcr_classifications", "embedding"])
-    for year in os.listdir("./VerifyClusterPatents/csv"):
-        if year!=".gitignore":
-            print("collecting data from "+year)
-            for csv in os.listdir("./VerifyClusterPatents/csv/"+year):
-                if stop_flag==True:
-                    stop_flag=False
-                    return
-                filename = os.fsdecode(csv)          
-                df_temp=pd.read_csv("./VerifyClusterPatents/csv/"+year+"/"+filename, index_col=False)
-                df = pd.concat([df, df_temp], join="outer", ignore_index=True)
-    embeddings=[np.fromstring(el.replace('\n','')
-                        .replace('[','')
-                        .replace(']','')
-                        .replace('  ',' '), sep=' ') for  el in df["embedding"]] 
-    embeddings=np.array(embeddings)                     # 6 min per arrivare quì
+                   # 6 min per arrivare quì
     print("calculating distances...")
     distances=pairwise_distances(embeddings, input_embedding, metric="cosine")
     df["distance"]=list(distances[:,0])
-    df.sort_values(by='distance', ascending=False, inplace=True, ignore_index=True)
-    df=df[:100]
-    del df['embedding']
-    del df["ipcr_classifications"]
+    output_df=df.sort_values(by='distance', ascending=True, ignore_index=True)#[:100]
+    del output_df['embedding']
+    del output_df["ipcr_classifications"]
+    #del output_df["abstract"]
+    del output_df["claims"]
     print("copying df to csv file...")
-    df.to_csv("./SearchResults/patent_search_results.csv", index=False)
+    output_df.to_csv("./SearchResults/patent_search_results.csv", index=False)
     response = {
-        "message": df.to_dict(),
+        "message": output_df[:100].to_dict(),
         "status": "success"
     }
     return jsonify(response)

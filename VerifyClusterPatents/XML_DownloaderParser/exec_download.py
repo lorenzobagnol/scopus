@@ -11,7 +11,7 @@ import os
 model = SentenceTransformer('sentence-transformers/all-mpnet-base-v2')
 
 def create_dataset(file_name, year):
-    df=pd.DataFrame(columns=["id","date", "application_reference", "title","abstract","ipcr_classifications", "claims", "embedding"])
+    df=pd.DataFrame(columns=["publication_id","publication_date", "application_reference", "title","abstract", "inventors", "ipcr_classifications", "claims", "embedding"])
     with open("xmls/"+file_name) as input:
         n_line=0
         temp_file = open('xmls/temp/temp.xml','w')
@@ -26,6 +26,7 @@ def create_dataset(file_name, year):
                 title=None
                 ab=None
                 application_ref={}
+                inventor_list=list()
                 for application_reference in us_patent_grant.iter("application-reference"):
                     application_ref["application_id"]=application_reference.find("document-id").find("doc-number").text
                     application_ref["application_date"]=application_reference.find("document-id").find("date").text
@@ -44,6 +45,9 @@ def create_dataset(file_name, year):
                                 "subclass": classification.find("subclass").text,
                                 "main-group": classification.find("main-group").text
                                 })
+                    for inventors in us_bibliographic_data_grant.iter("inventors"):
+                        for inventor in inventors.iter("inventor"):
+                            inventor_list.append(inventor.find("addressbook").find("last-name").text)
                     for classification in us_bibliographic_data_grant.iter("classifications-locarno"):
                         classification_locarno.append({
                             "edition": classification.find("edition").text,
@@ -60,13 +64,13 @@ def create_dataset(file_name, year):
                         claims.append(cl)  
                 if ab!=None :
                     emb=model.encode(ab)
-                    df.loc[len(df)]=[ publication_id, publication_date, application_ref, title, ab, classifications_ipcr, claims, emb]
+                    df.loc[len(df)]=[ publication_id, publication_date, application_ref, title, ab, inventor_list, classifications_ipcr, claims, emb]
                 temp_file = open('xmls/temp/temp.xml','w')
             temp_file.write(line)   
             n_line+=1
-        if not os.path.isdir("csv/"+year):
-            os.mkdir("csv/"+year)
-        df.to_csv("csv/"+year+"/"+file_name[:-4]+".csv")
+        #if not os.path.isdir("csv/"+year):
+        #    os.mkdir("csv/"+year)
+        df.to_csv("../csv/"+year+"/"+file_name[:-4]+".csv")
         print("\tcsv created.")
         
 first=True
@@ -82,7 +86,7 @@ for link in BulkDataStorageSystem_soup.find_all('a'):
         for table in PatentGrantFullTextData_soup.find_all('table'):
             for zip_downloader in tqdm(table.find_all('a'), total= len(table.find_all('a')), ):
                 if str(zip_downloader.get_text()).startswith("ipg"):
-                    if first and str(link.get('href'))+"/"+str(zip_downloader.get('href'))!= "https://bulkdata.uspto.gov/data/patent/grant/redbook/fulltext/2019/ipg190910.zip":
+                    if first and str(link.get('href'))+"/"+str(zip_downloader.get('href'))!= "https://bulkdata.uspto.gov/data/patent/grant/redbook/fulltext/2020/ipg200107.zip":
                         continue
                     else: first=False
                     print("\n\tdownloading patents from link "+str(link.get('href'))+"/"+str(zip_downloader.get('href')))
