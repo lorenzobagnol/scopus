@@ -16,7 +16,6 @@ python $bal
 # run python files to obtain csv for clustering evaluation
 base_path="/home/bagnol/progetti/Scopus/VerifyClusterPatents/Clustering"
 python_files=("generate_csv_sections.py" "generate_csv_classes.py" "generate_csv_subclasses.py")
-# Iterate through the list and run each Python script
 for file in "${python_files[@]}"; do
     full_path="$base_path/$file"
     echo '

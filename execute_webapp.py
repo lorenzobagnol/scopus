@@ -12,6 +12,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 from flask import Flask, request, render_template, jsonify
 from sklearn.metrics import pairwise_distances
 
+
+
+# load dataset and embeddings before stariting the webapp
 print("loading dataset...")
 df=pd.read_csv("VerifyClusterPatents/dataset_cleaned.csv", index_col=False)
 print("calculating embeddings...")
@@ -55,8 +58,6 @@ def retrive_from_scopus():
     render_template("index.html")
     global stop_flag
     abstract_brevetto=request.form.get('a')
-    #2019 Roddaro  
-    #abstract_brevetto="""An integrated circuit (1) operating in the quantum Hall effect regime to obtain a predetermined resistance standard (R*), in particular to perform calibration of standard electrical resistors. The integrated circuit (1) includes a plurality of field-effect transistors (20), a first section (10a) comprising at least a first and a second field-effect transistors (20a,20'a) connected in series and at least a second section (10b) comprising at least a first and a second field-effect transistors (20b,20'b) connected in series. The integrated circuit (1) comprises, in addition, a plurality of balancing ohmic contacts (5), at at least one of which (5in) a predetermined I-channel current is injected, which is, then, extracted at another ohmic contact (5out). The first and at least the second sections (10a,10b) are connected to each other in parallel, such that at a predetermined ohmic contact (5*) the predetermined standard of resistance (R*) is obtained"""
     kw_model = KeyBERT()
     keywords=set()
     for i in range(1,5):

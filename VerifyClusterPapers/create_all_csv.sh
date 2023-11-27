@@ -1,10 +1,13 @@
 #!/bin/bash
+# balance cleaned dataset 
+bal="/home/bagnol/progetti/Scopus/VerifyClusterPapers/Clustering/create_balanced_dataset.py"
+echo '
+    Balance dataset'
+python $bal
 
-# List of Python files to run
+
+# run python files to obtain csv for clustering evaluation
 python_files=("./Clustering/generate_csv_macroareas.py" "./Clustering/generate_csv_subjects.py" "./Clustering/generate_csv_topics.py")
-
-
-# Iterate through the list and run each Python script
 for file in "${python_files[@]}"; do
     echo '
     Running '$file
